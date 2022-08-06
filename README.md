@@ -14,7 +14,7 @@ This might seem useless, but some might find it useful idk. If you do, leave a s
 
 ## Demo
 
-https://github.com/yeti2006/discord-react-to-bookmark/raw/main/readme/discord-react-to-bookmark-demo.mp4
+https://user-images.githubusercontent.com/79295277/183258374-10db80a9-62b0-49eb-9c91-68d8e9b1ad88.mp4
 
 Context: Setting up 2 bookmark channels for the emojis :star: and :bookmark: for #memes and #important respectively
 
@@ -72,3 +72,6 @@ The `config.ini` file exists for you to add as many reaction emojis as you want 
 | `message` | The message | [`Message`](https://discordpy-self.readthedocs.io/en/latest/api.html?highlight=member#discord.Message)|
 | `emoji` | The emoji you reacted with | None
 | `newline` | Appends a new line to the string | None
+
+
+___
