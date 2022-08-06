@@ -13,7 +13,8 @@ I recommend having a private server for having all of your bookmark channels. I 
 This might seem useless, but some might find it useful idk. If you do, leave a star <3
 
 ## Demo
-![demo](./readme/discord-react-to-bookmark-demo.mp4)
+
+https://github.com/yeti2006/discord-react-to-bookmark/raw/main/readme/discord-react-to-bookmark-demo.mp4
 
 Context: Setting up 2 bookmark channels for the emojis :star: and :bookmark: for #memes and #important respectively
 
