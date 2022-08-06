@@ -20,7 +20,7 @@ class Configuration:
 
     def get_bookmarks(self) -> dict:
         """
-        {'emoji': channel_Id}
+        {'emoji': {'channel_id': 123, 'message_format': 'abc'}}
         """
 
         bookmark_blocks = [
@@ -31,9 +31,12 @@ class Configuration:
 
         bookmarks = {}
         for block in bookmark_blocks:
-            logger.debug(
+            logger.info(
                 f"Obtained emoji {block} with channel id -> {self.parser[block]['channel_id']}"
             )
-            bookmarks[block] = int(self.parser[block]["channel_id"])
+            bookmarks[block] = {
+                "channel_id": int(self.parser[block]["channel_id"]),
+                "message_format": str(self.parser[block]["message_format"]),
+            }
 
         return bookmarks

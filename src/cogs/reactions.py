@@ -29,7 +29,9 @@ class ReactionEvent(commands.Cog):
             f"Received reaction {str(payload.emoji)} | {guild.name} | {channel.name} | {message.id}"
         )
 
-        destination = self.bot.get_channel(self.bookmarks[str(payload.emoji)])
+        destination = self.bot.get_channel(
+            self.bookmarks[str(payload.emoji)]["channel_id"]
+        )
 
         if destination is None:
             raise Exception("Invalid Channel ID provided.")
@@ -47,7 +49,13 @@ class ReactionEvent(commands.Cog):
                 attachment_list.append((bytes, attachment.filename))
 
         await destination.send(
-            f"**{message.author}**(_{guild.name}_) - {selfcord.utils.format_dt(message.created_at)}\n{message.content}",
+            self.bookmarks[str(payload.emoji)]["message_format"].format(
+                author=message.author,
+                server=guild,
+                message=message,
+                time=selfcord.utils.format_dt(message.created_at),
+                newline="\n",
+            ),
             files=[
                 selfcord.File(BytesIO(attachment[0]), filename=attachment[1])
                 for attachment in attachment_list
@@ -56,7 +64,7 @@ class ReactionEvent(commands.Cog):
             else None,
         )
 
-        logger.debug(f"Succesfully sent to: #{destination} | {destination.guild}")
+        logger.success(f"Succesfully sent to: #{destination} | {destination.guild}")
 
 
 async def setup(bot):
