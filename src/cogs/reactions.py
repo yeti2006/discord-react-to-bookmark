@@ -13,6 +13,15 @@ class ReactionEvent(commands.Cog):
         self.config = Configuration()
         self.bookmarks = self.config.get_bookmarks()
 
+    async def log(self, **kwargs):
+        log_channel = self.config.get_log_channel()
+
+        if log_channel is None:
+            return
+
+        channel = self.bot.get_channel(log_channel[0])
+        await channel.send(log_channel[1].format(**kwargs))
+
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload: selfcord.RawReactionActionEvent):
         if (
@@ -25,7 +34,7 @@ class ReactionEvent(commands.Cog):
         channel = guild.get_channel(payload.channel_id)
         message = await channel.fetch_message(payload.message_id)
 
-        logger.debug(
+        logger.info(
             f"Received reaction {str(payload.emoji)} | {guild.name} | {channel.name} | {message.id}"
         )
 
@@ -39,7 +48,7 @@ class ReactionEvent(commands.Cog):
         attachment_list = []
 
         if message.attachments:
-            logger.debug(
+            logger.info(
                 "Attachments found: "
                 + ", ".join([x.filename for x in message.attachments])
             )
@@ -65,6 +74,13 @@ class ReactionEvent(commands.Cog):
         )
 
         logger.success(f"Succesfully sent to: #{destination} | {destination.guild}")
+        await self.log(
+            author=message.author,
+            server=guild,
+            message=message,
+            time=selfcord.utils.format_dt(message.created_at),
+            newline="\n",
+        )
 
 
 async def setup(bot):

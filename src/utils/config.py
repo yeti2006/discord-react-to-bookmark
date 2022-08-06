@@ -1,8 +1,5 @@
 from configparser import ConfigParser
-
 from loguru import logger
-
-from pprint import pprint as p
 
 
 class Configuration:
@@ -12,11 +9,16 @@ class Configuration:
 
     def get_discord_token(self) -> str:
         token = self.parser["info"]["discord_account_token"]
+
         return token
 
     def get_log_channel(self) -> int:
-        channel_id = self.parser["info"]["logs_channel_id"]
-        return channel_id if not 0 else None
+        channel_id = int(self.parser["info"]["logs_channel_id"])
+        return (
+            (channel_id, str(self.parser["info"]["message_format"]))
+            if not channel_id == 0
+            else None
+        )
 
     def get_bookmarks(self) -> dict:
         """
