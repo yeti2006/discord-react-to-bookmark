@@ -14,7 +14,7 @@ This might seem useless, but some might find it useful idk. If you do, leave a s
 
 ## Demo
 
-https://user-images.githubusercontent.com/79295277/183258374-10db80a9-62b0-49eb-9c91-68d8e9b1ad88.mp4
+https://streamable.com/af7ugd
 
 Context: Setting up 2 bookmark channels for the emojis :star: and :bookmark: for #memes and #important respectively
 
@@ -75,3 +75,5 @@ The `config.ini` file exists for you to add as many reaction emojis as you want 
 
 
 ___
+
+
