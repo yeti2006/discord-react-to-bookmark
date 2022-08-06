@@ -63,6 +63,7 @@ class ReactionEvent(commands.Cog):
                 server=guild,
                 message=message,
                 time=selfcord.utils.format_dt(message.created_at),
+                emoji=str(payload.emoji),
                 newline="\n",
             ),
             files=[
@@ -79,6 +80,7 @@ class ReactionEvent(commands.Cog):
             server=guild,
             message=message,
             time=selfcord.utils.format_dt(message.created_at),
+            emoji=str(payload.emoji),
             newline="\n",
         )
 
