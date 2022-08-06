@@ -12,7 +12,7 @@ class Configuration:
 
     def get_discord_token(self) -> str:
         token = str(self.parser["info"]["discord_account_token"])
-        if token == "your_account_token":
+        if "your_account_token" in token:
             token = os.environ.get("discord_account_token")
 
         return str(token)
