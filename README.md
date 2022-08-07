@@ -52,7 +52,7 @@ python -m bm
 
 The `config.ini` file exists for you to add as many reaction emojis as you want and send the messages you react messages with to channels you specify.
 
-...To add an emoji, you need to create a block with brackets `[]` and type in an emoji unicode inside them. After that, it requires to values inside that block:
+To add an emoji, you need to create a block with brackets `[]` and type in an emoji unicode inside them. After that, it requires to values inside that block:
 
 - [x] `channel_id` - The ID of the text channel you want the bookmarked message sent to
 - [x] `message_format` - The format of the message. Use variables with `{}`. You can leave this empty to use the default value:
