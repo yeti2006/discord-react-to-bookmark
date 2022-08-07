@@ -21,6 +21,18 @@ Context: Setting up 2 bookmark channels for the emojis :star: and :bookmark: for
 ## Requirements
 * [discord-py-self](https://github.com/dolfies/discord.py-self@renamed#egg=selfcord.py[voice]) - renamed branch(`selfcord`)
 * loguru - for logging
+* your discord account token
+
+   - **How to get your token?**
+      
+      1. Open https://discord.com/app on your web browser
+      2. Open Developer Tools(ctrl + shift + i)
+      3. Head over to the Applications tab & Toggle Device Toolbar 
+      4. Search for 'token' and copy the value
+
+      <br>
+
+      > If you need further instructions please refer to https://pcstrike.com/how-to-get-discord-token/
 
 # Usage
 
